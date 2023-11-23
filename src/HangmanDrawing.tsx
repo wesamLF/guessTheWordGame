@@ -1,5 +1,5 @@
 
-const HangmanDrawing = () => {
+const HangmanDrawing = ({ wrongLatters }: { wrongLatters: string[] }) => {
 
 
     const HMbase = () => <>
@@ -27,16 +27,14 @@ const HangmanDrawing = () => {
     const LefttLeg = (
         <div className="absolute w-1 h-14 top-32 right-11 rotate-45 bg-black"></div>
     )
-
+    let fullBody =  [Head, Body, RightArm, LefttArm, RightLeg, LefttLeg]
+    
+    
+    
     return (
-        <div className="bg-blue-400 relative">
+        <div className="relative">
             <HMbase />
-            {Head}
-            {Body}
-            {RightArm}
-            {LefttArm}
-            {RightLeg}
-            {LefttLeg}
+            { fullBody.slice(0 , wrongLatters.length)}
         </div>
     )
 }
